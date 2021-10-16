@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCoins, selectCions } from "./coinSlice";
 import { Box, Stack, HStack, Heading, Text, VStack, useColorModeValue, List, ListItem, ListIcon, Button } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function PriceWrapper({ children }) {
   return (
@@ -68,9 +69,11 @@ export function Coins() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="purple" variant="outline">
-                Buy now
-              </Button>
+              <Link to="/history">
+                <Button w="full" colorScheme="purple" variant="outline">
+                  Buy now
+                </Button>
+              </Link>
             </Box>
           </VStack>
         </PriceWrapper>
@@ -120,9 +123,11 @@ export function Coins() {
                 </ListItem>
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" bg="purple.700" color="white" _hover={{ bg: "purple.500" }}>
-                  Buy now
-                </Button>
+                <Link to="/history">
+                  <Button w="full" bg="purple.700" color="white" _hover={{ bg: "purple.500" }}>
+                    Buy now
+                  </Button>
+                </Link>
               </Box>
             </VStack>
           </Box>
@@ -158,9 +163,11 @@ export function Coins() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="purple" variant="outline">
-                Buy now
-              </Button>
+              <Link to="/history">
+                <Button w="full" colorScheme="purple" variant="outline">
+                  Buy now
+                </Button>
+              </Link>
             </Box>
           </VStack>
         </PriceWrapper>

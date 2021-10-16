@@ -43,7 +43,7 @@ app.get("/api/getCoins", async (req, res) => {
 });
 app.get("/api/getHistory", async (req, res) => {
   const coinsData = coinDataManager.getCoins();
-  const coinApi = "bitstamp";
+  const coinApi = COIN_API;
   const coins = await coinsData.map(async (coin) => {
     const res = await coinDataManager.getCoin(coin.name, coinApi, "history");
     return { rate: coin.api[coinApi], coin: coin.name, exchange: coinApi, history: res };

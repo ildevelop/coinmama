@@ -1,4 +1,4 @@
-const DEFAULT_EXPIRATION = 3600; // 1h
+const DEFAULT_EXPIRATION = 7200; // 1h
 const REDIS_ADDRESS = process.env.REDIS_ADDRESS || "localhost";
 const COIN_API = "bitstamp";
 const PORT = process.env.PORT || 5000;
@@ -22,7 +22,7 @@ const coinConfig = [
       bitstamp: "btcusd",
     },
     apiHistory: {
-      bitstamp: `btcusd?step=${DEFAULT_EXPIRATION}&limit=1000`,
+      bitstamp: `btcusd?step=${DEFAULT_EXPIRATION}&limit=500`,
     },
   },
   {
@@ -31,7 +31,7 @@ const coinConfig = [
       bitstamp: "ltcusd",
     },
     apiHistory: {
-      bitstamp: `ltcusd?step=${DEFAULT_EXPIRATION}&limit=1000`,
+      bitstamp: `ltcusd?step=${DEFAULT_EXPIRATION}&limit=500`,
     },
   },
 
@@ -41,7 +41,7 @@ const coinConfig = [
       bitstamp: "ethusd",
     },
     apiHistory: {
-      bitstamp: `ethusd?step=${DEFAULT_EXPIRATION}&limit=1000`,
+      bitstamp: `ethusd?step=${DEFAULT_EXPIRATION}&limit=500`,
     },
   },
 ];
