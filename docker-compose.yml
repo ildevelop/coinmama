@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  ####################################
+  ###         Applications         ###
+  ####################################
+
+  server:
+    restart: always
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    volumes:
+      - ./server:/server
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_ADDRESS=redis
+    networks:
+      - coinmama-network
+    command: npm run start-dev
+
+  redis:
+    container_name: redis
+    image: redis:6.2.6-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - coinmama-network
+
+  cron:
+    restart: always
+    build:
+      context: .
+      dockerfile: server/CronDockerFile
+    volumes:
+      - ./server:/server
+    environment:
+      - REDIS_ADDRESS=redis
+    networks:
+      - coinmama-network
+
+networks:
+  coinmama-network:
+    driver: bridge
